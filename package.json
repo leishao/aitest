@@ -1,0 +1,28 @@
+{
+  "name": "youtube-podcast-to-article",
+  "version": "0.1.0",
+  "description": "Turn YouTube podcast transcripts into articles.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leishao/aitest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leishao/aitest/issues"
+  },
+  "homepage": "https://github.com/leishao/aitest#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "openai": "^6.16.0",
+    "youtube-transcript": "^1.2.1"
+  }
+}

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>YouTube Podcast to Article</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">YouTube Podcast to Article</p>
+          <h1>Generate articles from podcast transcripts</h1>
+          <p class="subtitle">
+            Paste a YouTube URL, pick a style, and get a structured article
+            based on the transcript.
+          </p>
+        </div>
+        <div class="hero-card">
+          <h2>How it works</h2>
+          <ol>
+            <li>Paste the YouTube podcast link.</li>
+            <li>Choose a writing style and length.</li>
+            <li>Generate the transcript and article.</li>
+          </ol>
+          <p class="hint">
+            Tip: Provide a custom style note for tone, audience, or format.
+          </p>
+        </div>
+      </header>
+
+      <section class="panel">
+        <form id="generator-form" class="form">
+          <div class="field-group">
+            <label for="youtube-url">YouTube URL</label>
+            <input
+              id="youtube-url"
+              name="youtube-url"
+              type="url"
+              placeholder="https://www.youtube.com/watch?v=..."
+              required
+            />
+          </div>
+
+          <div class="grid">
+            <div class="field-group">
+              <label for="style-preset">Style preset</label>
+              <select id="style-preset" name="style-preset">
+                <option value="News brief">News brief</option>
+                <option value="Explainer">Explainer</option>
+                <option value="Storytelling recap">Storytelling recap</option>
+                <option value="Opinion editorial">Opinion editorial</option>
+                <option value="Technical summary">Technical summary</option>
+                <option value="Interview highlights">Interview highlights</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="length">Length</label>
+              <select id="length" name="length">
+                <option value="short">Short</option>
+                <option value="medium" selected>Medium</option>
+                <option value="long">Long</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="language">Output language</label>
+              <select id="language" name="language">
+                <option value="auto" selected>Auto</option>
+                <option value="Chinese">Chinese</option>
+                <option value="English">English</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="style-detail">Custom style details</label>
+            <textarea
+              id="style-detail"
+              name="style-detail"
+              rows="3"
+              placeholder="Example: concise, startup audience, add bullet points"
+            ></textarea>
+          </div>
+
+          <div class="actions">
+            <button id="submit-btn" class="primary" type="submit">
+              Generate article
+            </button>
+            <span class="helper">
+              Captions must be available for the video.
+            </span>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel output-panel">
+        <div class="output-header">
+          <h2>Output</h2>
+          <div class="badges">
+            <span id="mode" class="badge"></span>
+            <span id="truncation-note" class="badge warn" hidden>
+              Transcript truncated for processing
+            </span>
+          </div>
+        </div>
+        <p id="status" class="status"></p>
+
+        <div class="output-grid">
+          <div class="output-card">
+            <div class="output-card-header">
+              <h3>Transcript</h3>
+              <button
+                class="ghost"
+                type="button"
+                data-copy-target="transcript"
+              >
+                Copy
+              </button>
+            </div>
+            <div id="transcript" class="output"></div>
+          </div>
+
+          <div class="output-card">
+            <div class="output-card-header">
+              <h3>Article</h3>
+              <button
+                class="ghost"
+                type="button"
+                data-copy-target="article"
+              >
+                Copy
+              </button>
+            </div>
+            <div id="article" class="output"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>
+          This demo uses YouTube transcripts and optionally the OpenAI API to
+          draft articles. Always review and edit before publishing.
+        </p>
+      </footer>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
